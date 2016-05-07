@@ -27,7 +27,8 @@ co.wrap = function (fn) {
   createPromise.__generatorFunction__ = fn;
   return createPromise;
   function createPromise() {
-    return co.call(this, fn.apply(this, arguments));
+    var args = slice.call(arguments);
+    return co.call(this, fn.apply(this, args));
   }
 };
 
